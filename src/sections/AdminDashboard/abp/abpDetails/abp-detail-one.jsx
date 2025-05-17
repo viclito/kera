@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Box, Container, Divider, Paper, Typography } from '@mui/material';
 
 import { InfoListItem, InfoTableHead } from '../../fpc/fpcDetails/InfoListItem';
-import PropTypes from 'prop-types';
 
 // Reusable SectionHeader component
 const SectionHeader = ({ title }) => (
