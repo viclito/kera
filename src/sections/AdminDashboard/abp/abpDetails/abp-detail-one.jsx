@@ -3,6 +3,7 @@ import React from 'react';
 import { Box, Container, Divider, Paper, Typography } from '@mui/material';
 
 import { InfoListItem, InfoTableHead } from '../../fpc/fpcDetails/InfoListItem';
+import PropTypes from 'prop-types';
 
 // Reusable SectionHeader component
 const SectionHeader = ({ title }) => (
@@ -93,3 +94,8 @@ export default function ABPDetailOne() {
 // You can now use <InfoListItem label="..." value={...} /> wherever you want a label-value row.
 // For example, replacing DetailRow:
 // <InfoListItem label="Application No" value={data.applicationNo} />
+
+
+SectionHeader.propTypes = {
+  title: PropTypes.string.isRequired,
+};

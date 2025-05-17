@@ -6,7 +6,7 @@ import { Box, Tab, Tabs, alpha, CircularProgress } from '@mui/material';
 
 export default function FpcDetailsForm({ FpcId }) {
   const [selectedTab, setSelectedTab] = useState('1');
-  const [technicalFormData, setTechnicalFormData] = useState({});
+  // const [technicalFormData, setTechnicalFormData] = useState({});
 
   // Fetch land details using React Query
 
@@ -16,10 +16,10 @@ export default function FpcDetailsForm({ FpcId }) {
     }
   };
 
-  const handleTechnicalSubmission = ({ technicalData, tabID }) => {
-    setSelectedTab(tabID);
-    setTechnicalFormData(technicalData);
-  };
+  // const handleTechnicalSubmission = ({ technicalData, tabID }) => {
+  //   setSelectedTab(tabID);
+  //   setTechnicalFormData(technicalData);
+  // };
 
   const tabData = [
     {

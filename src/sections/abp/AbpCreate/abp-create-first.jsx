@@ -1,6 +1,7 @@
 import { LoadingButton } from '@mui/lab';
 import { Grid, Typography } from '@mui/material';
 import { Box, Stack } from '@mui/system';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { RHFSwitch, RHFDropDown, RHFTextField } from 'src/components/hook-form';
 
@@ -137,3 +138,8 @@ export default function AbpCreateFirst({ methods, setStep }) {
     </div>
   );
 }
+
+AbpCreateFirst.propTypes = {
+  methods: PropTypes.object.isRequired,
+  setStep: PropTypes.func.isRequired,
+};

@@ -1,6 +1,9 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+
 import { LoadingButton } from '@mui/lab'
 import { Box, Grid, Stack, Typography } from '@mui/material'
-import React from 'react'
+
 import { RHFTextField } from 'src/components/hook-form'
 
 export default function FpcCreateThird({setStep , defaultValues}) {
@@ -102,4 +105,10 @@ export default function FpcCreateThird({setStep , defaultValues}) {
                     </Grid>
     </div>
   )
+}
+
+FpcCreateThird.propTypes ={
+  setStep: PropTypes.func,
+  defaultValues :PropTypes.array
+
 }
