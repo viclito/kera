@@ -67,7 +67,7 @@ export default function JwtRegisterView() {
       // await sendOtp({ mobile: data.mobile });
       
       setMobileNumber(data.mobile);
-      methods.setContext({ isOtpStep: true });
+      // methods.setContext({ isOtpStep: true });
       enqueueSnackbar('OTP sent successfully!', { variant: 'success' });
     } catch (error) {
       console.error('Registration error:', error);
