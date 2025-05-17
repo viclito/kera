@@ -50,9 +50,7 @@ export default function AbpCreateForm({ FpcId }) {
   const defaultValues = useMemo(
     () => ({
         // Basic Abp Information
-        is_deleted: true,
         application_status: "",
-        is_draft: true,
         applicant_name: "",
         gender: "",
         mobile_number: "",

@@ -22,7 +22,7 @@ export default function AbpCreateFirst({ methods, setStep }) {
               sm: 'repeat(2, 1fr)',
             }}
           >
-            <RHFSwitch name="is_deleted" label="Is Deleted" />
+            {/* <RHFSwitch name="is_deleted" label="Is Deleted" /> */}
             <RHFDropDown
               name="application_status"
               label="Application Status"
@@ -31,7 +31,7 @@ export default function AbpCreateFirst({ methods, setStep }) {
                 { label: 'Approved', value: 'approved' },
               ]}
             />
-            <RHFSwitch name="is_draft" label="Is Draft" />
+            {/* <RHFSwitch name="is_draft" label="Is Draft" /> */}
             <RHFTextField name="applicant_name" label="Applicant Name" />
             <RHFDropDown
               name="gender"
