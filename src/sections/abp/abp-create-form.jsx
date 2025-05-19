@@ -50,7 +50,9 @@ export default function AbpCreateForm({ FpcId }) {
   const defaultValues = useMemo(
     () => ({
         // Basic Abp Information
+        is_deleted: true,
         application_status: "",
+        is_draft: true,
         applicant_name: "",
         gender: "",
         mobile_number: "",
@@ -176,29 +178,29 @@ export default function AbpCreateForm({ FpcId }) {
           loan_required: ""
         },
         rating_matrix: {
-          operational_age: "2-3",
-          women_directors: "1-2",
-          bod_meetings: "4-8",
-          agm_conducted: true,
-          agm_participation: "0-50",
-          audit_status: "non_compliant",
-          has_ceo: true,
-          has_accountant: true,
-          has_ca_cs: true,
-          has_gst: true,
-          has_fssai: true,
-          has_export_license: true,
-          fpc_linkage: "1",
-          warehouse_linkage: "own",
-          benefit_crop_advisory: true,
-          benefit_custom_hiring: true,
-          benefit_collection: true,
-          benefit_other: true,
-          turnover_range: "10-12",
-          land_status: "lease_basic",
-          convergence_scheme_count: "1",
-          loan_availed: true,
-          regular_repayment: true
+          operational_age: "",
+          women_directors: "",
+          bod_meetings: "",
+          agm_conducted: false,
+          agm_participation: "",
+          audit_status: "",
+          has_ceo: false,
+          has_accountant: false,
+          has_ca_cs: false,
+          has_gst: false,
+          has_fssai: false,
+          has_export_license: false,
+          fpc_linkage: "",
+          warehouse_linkage: "",
+          benefit_crop_advisory: false,
+          benefit_custom_hiring: false,
+          benefit_collection: false,
+          benefit_other: false,
+          turnover_range: "",
+          land_status: "",
+          convergence_scheme_count: "",
+          loan_availed: false,
+          regular_repayment: false
         },
 
     }),
@@ -206,13 +208,39 @@ export default function AbpCreateForm({ FpcId }) {
   );
 
   const NewUserSchema = Yup.object().shape({
-    // applicant_name: Yup.string().required('Applicant name is required'),
-    // mobile_number: Yup.string()
-    //   .matches(/^[0-9]{10}$/, 'Mobile number must be 10 digits')
-    //   .required('Mobile number is required'),
-    // email: Yup.string().email('Invalid email format').required('Email is required'),
+    applicant_name: Yup.string().required('Applicant name is required'),
+    mobile_number: Yup.string()
+      .matches(/^[0-9]{10}$/, 'Mobile number must be 10 digits')
+      .required('Mobile number is required'),
+    email: Yup.string().email('Invalid email format').required('Email is required'),
     // fpc_name: Yup.string().required('FPC name is required'),
     // district: Yup.string().required('District is required'),
+
+    rating_matrix: Yup.object().shape({
+      operational_age: Yup.string().required('Operational age is required'),
+      women_directors: Yup.string().required('Women directors value is required'),
+      bod_meetings: Yup.string().required('BoD meetings value is required'),
+      agm_conducted: Yup.boolean(),
+      agm_participation: Yup.string().required('AGM participation is required'),
+      audit_status: Yup.string().required('Audit status is required'),
+      has_ceo: Yup.boolean(),
+      has_accountant: Yup.boolean(),
+      has_ca_cs: Yup.boolean(),
+      has_gst: Yup.boolean(),
+      has_fssai: Yup.boolean(),
+      has_export_license: Yup.boolean(),
+      fpc_linkage: Yup.string().required('FPC linkage is required'),
+      warehouse_linkage: Yup.string().required('Warehouse linkage is required'),
+      benefit_crop_advisory: Yup.boolean(),
+      benefit_custom_hiring: Yup.boolean(),
+      benefit_collection: Yup.boolean(),
+      benefit_other: Yup.boolean(),
+      turnover_range: Yup.string().required('Turnover range is required'),
+      land_status: Yup.string().required('Land status is required'),
+      convergence_scheme_count: Yup.string().required('Convergence scheme count is required'),
+      loan_availed: Yup.boolean(),
+      regular_repayment: Yup.boolean(),
+    }),
   });
 
   const methods = useForm({
@@ -253,10 +281,6 @@ export default function AbpCreateForm({ FpcId }) {
   const { fields : creditFields,append: creditAppend, remove : creditRemove } = useFieldArray({
     control: methods.control,
     name: 'credit_facilities',
-  });
-  const { fields : Fields,append: Append, remove : Remove } = useFieldArray({
-    control: methods.control,
-    name: 'board_members',
   });
 
 

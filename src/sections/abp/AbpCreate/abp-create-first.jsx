@@ -1,8 +1,10 @@
-import { LoadingButton } from '@mui/lab';
-import { Grid, Typography } from '@mui/material';
-import { Box, Stack } from '@mui/system';
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+
+import { LoadingButton } from '@mui/lab';
+import { Box, Stack } from '@mui/system';
+import { Grid, Typography } from '@mui/material';
+
 import { RHFSwitch, RHFDropDown, RHFTextField } from 'src/components/hook-form';
 
 export default function AbpCreateFirst({ methods, setStep }) {
@@ -22,7 +24,6 @@ export default function AbpCreateFirst({ methods, setStep }) {
               sm: 'repeat(2, 1fr)',
             }}
           >
-            {/* <RHFSwitch name="is_deleted" label="Is Deleted" /> */}
             <RHFDropDown
               name="application_status"
               label="Application Status"
@@ -31,7 +32,6 @@ export default function AbpCreateFirst({ methods, setStep }) {
                 { label: 'Approved', value: 'approved' },
               ]}
             />
-            {/* <RHFSwitch name="is_draft" label="Is Draft" /> */}
             <RHFTextField name="applicant_name" label="Applicant Name" />
             <RHFDropDown
               name="gender"
@@ -126,11 +126,135 @@ export default function AbpCreateFirst({ methods, setStep }) {
           </Box>
         </Grid>
 
+        {/* Rating Matrix */}
+        <Grid xs={12}>
+          <Typography variant="h6" sx={{ mt: 3, mb: 1.5 }}>
+            Rating Matrix
+          </Typography>
+          <Box
+            gap={2}
+            display="grid"
+            gridTemplateColumns={{
+              xs: 'repeat(1, 1fr)',
+              sm: 'repeat(2, 1fr)',
+            }}
+            alignItems={{ sm: 'center' }} 
+            placeItems={{ sm: 'center start' }}
+          >
+            <RHFDropDown
+              name="rating_matrix.operational_age"
+              label="Operational Age of ABP from date of registration"
+              options={[
+                { label: '2-3', value: '2-3' },
+                { label: '3-5', value: '3-5' },
+                { label: '5+', value: '5+' },
+              ]}
+            />
+            <RHFDropDown
+              name="rating_matrix.women_directors"
+              label="Women Directors"
+              options={[
+                { label: '1-2', value: '1-2' },
+                { label: '3-4', value: '3-4' },
+                { label: '5+', value: '5+' },
+              ]}
+            />
+            <RHFDropDown
+              name="rating_matrix.bod_meetings"
+              label="Number of BoD meetings conducted in a year"
+              options={[
+                { label: '4-8', value: '4-8' },
+                { label: '9-12', value: '9-12' },
+                { label: '12+', value: '12+' },
+              ]}
+            />
+            <RHFSwitch name="rating_matrix.agm_conducted" label="Annual general body meeting conducted" />
+            <RHFDropDown
+              name="rating_matrix.agm_participation"
+              label="Participation of shareholders for the AGM"
+              options={[
+                { label: '0-50', value: '0-50' },
+                { label: '51-75', value: '51-75' },
+                { label: '75+', value: '75+' },
+              ]}
+            />
+            <RHFDropDown
+              name="rating_matrix.audit_status"
+              label="Audits Undertaken"
+              options={[
+                { label: 'non_compliant', value: 'non_compliant' },
+                { label: 'compliant', value: 'compliant' },
+              ]}
+            />
+            <RHFSwitch name="rating_matrix.has_ceo" label="Full time Manager/CEO" />
+            <RHFSwitch name="rating_matrix.has_accountant" label="Full time Accountant" />
+            <RHFSwitch name="rating_matrix.has_ca_cs" label="Appointment of CA/CS" />
+            <RHFSwitch name="rating_matrix.has_gst" label="=GST" />
+            <RHFSwitch name="rating_matrix.has_fssai" label="FSSAI" />
+            <RHFSwitch name="rating_matrix.has_export_license" label="APEDA/Export, etc" />
+            <RHFDropDown
+              name="rating_matrix.fpc_linkage"
+              label="Direct linkages with FPCs from Kerala"
+              options={[
+                { label: '1', value: '1' },
+                { label: '2-5', value: '2-5' },
+                { label: '5+', value: '5+' },
+                { label: 'export', value: 'export' },
+              ]}
+            />
+            <RHFDropDown
+              name="rating_matrix.warehouse_linkage"
+              label="Linkages with warehouse facility/ e-market linkages"
+              options={[
+                { label: 'own', value: 'own' },
+                { label: 'link', value: 'link' },
+                { label: 'etrade', value: 'etrade' },
+              ]}
+            />
+            <RHFSwitch name="rating_matrix.benefit_crop_advisory" label="Crop advisory with required unique specifications" />
+            <RHFSwitch name="rating_matrix.benefit_custom_hiring" label="Custom hiring support of machineries, primary and secondary processing, packaging, quality assurance, exports" />
+            <RHFSwitch name="rating_matrix.benefit_collection" label="Collection centre/ storage" />
+            <RHFSwitch name="rating_matrix.benefit_other" label="Any other Please specify" />
+            <RHFDropDown
+              name="rating_matrix.turnover_range"
+              label="Turnover of FPC per year (as per audited balance sheet) in Rs."
+              options={[
+                { label: '10-12 Cr', value: '10-12' },
+                { label: '12-15 Cr', value: '12-15' },
+                { label: '15-20 Cr', value: '15-20' },
+                { label: '20 Cr+', value: '20+' },
+              ]}
+            />
+            <RHFDropDown
+              name="rating_matrix.land_status"
+              label="Lease/ Own Land"
+              options={[
+                { label: 'lease_basic', value: 'lease_basic' },
+                { label: 'lease_infra', value: 'lease_infra' },
+                { label: 'own_infra', value: 'own_infra' },
+              ]}
+            />
+            <RHFDropDown
+              name="rating_matrix.convergence_scheme_count"
+              label="Convergence with state/ central government"
+              options={[
+                { label: '1', value: '1' },
+                { label: '2', value: '2' },
+                { label: '3', value: '3' },
+                { label: '>3', value: '>3' },
+              ]}
+            />
+            <RHFSwitch name="rating_matrix.loan_availed" label="Need based loan availed from financial institutions- Working capital or term loan" />
+            <RHFSwitch name="rating_matrix.regular_repayment" label="Regular repayments without defaults" />
+          </Box>
+        </Grid>
+
+
         <Stack
           direction="row"
           sx={{ mt: 4, display: 'flex', justifyContent: 'flex-end', gap: 2, width: '100%' }}
         >
-          <LoadingButton size="small" variant="contained" onClick={() => setStep(2)}>
+          <LoadingButton size="small" variant="contained" onClick={methods.handleSubmit(() => setStep(2))}>
             Next
           </LoadingButton>
         </Stack>
