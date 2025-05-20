@@ -12,7 +12,7 @@ export default function FpcCreate() {
 
   return (
     <Container maxWidth={settings.themeStretch ? false : 'lg'}>
-      <CustomBreadcrumbs heading="New FPC" links={[{ name: 'Create FPC' }]} />
+      <CustomBreadcrumbs heading="FPC" links={[{ name: 'Create FPC' }]} />
       <FpcCreateEditForm />
     </Container>
   );
