@@ -116,7 +116,7 @@ export default function FpcCreateFirst({ methods, setStep }) {
             }}
           >
             <RHFTextField name="cin_number" label="CIN Number" />
-            <RHFTextField name="tan" label="TAN" />
+            {/* <RHFTextField name="tan" label="TAN" /> */}
             <RHFTextField name="pan" label="PAN" />
             <RHFTextField name="gst" label="GST" />
             <RHFTextField
