@@ -73,7 +73,6 @@ export default function FpcCreateFirst({ methods, setStep }) {
               sm: 'repeat(2, 1fr)',
             }}
           >
-            <RHFTextField name="application_no" label="Application Number" />
             <RHFTextField name="applicant_name" label="Applicant Name" />
             <RHFTextField name="mobile_number" label="Mobile Number" />
             <RHFTextField name="email" label="Email" />
